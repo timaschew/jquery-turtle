@@ -367,7 +367,7 @@ THE SOFTWARE.
 //////////////////////////////////////////////////////////////////////////
 
 module.exports = function($, global) {
-    if (typeof globale === 'undefined') {
+    if (typeof global === 'undefined') {
       global = window;
     }
     var __hasProp = {}.hasOwnProperty,
