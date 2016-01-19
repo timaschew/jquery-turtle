@@ -365,14 +365,13 @@ THE SOFTWARE.
 // PREREQUISTIES
 // Establish support for transforms in this browser.
 //////////////////////////////////////////////////////////////////////////
-var $ = require('jQuery');
 
-
-(function($) {
-var undefined = void 0,
-    global = this,
-    __hasProp = {}.hasOwnProperty,
-    rootjQuery = jQuery(function() {}),
+module.exports = function($, global) {
+    if (typeof globale === 'undefined') {
+      global = window;
+    }
+    var __hasProp = {}.hasOwnProperty,
+    rootjQuery = $(function() {}),
     interrupted = false,
     async_pending = 0,
     global_plan_depth = 0,
@@ -11144,4 +11143,4 @@ function scalePolygon(poly, sx, sy, tx, ty) {
   }
 }
 
-})(jQuery);
+};

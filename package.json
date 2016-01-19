@@ -2,13 +2,14 @@
   "name": "jquery-turtle",
   "version": "2.0.10",
   "description": "Turtle graphics plugin for jQuery.",
-  "main": "jquery-turtle.js",
+  "main": "src/jquery-turtle.js",
   "scripts": {
     "predeploy": "npm test",
     "deploy": "npm version patch && git add package.json",
     "postdeploy": "git push ",
-    "build": "browserify src/jquery-turtle.js -o dist/jquery-turtle.js && grunt uglify",
-    "test": "npm run build && grunt"
+    "build": "browserify src/standalone.js -o dist/jquery-turtle.js --standalone $.turtle",
+    "minify": "uglifyjs dist/jquery-turtle.js -m -c -o dist/jquery-turtle.min.js",
+    "test": "npm run build && grunt test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,6 @@
   "homepage": "https://github.com/PencilCode/jquery-turtle",
   "devDependencies": {
     "browserify": "latest",
-    "browserify-shim": "latest",
     "grunt": "latest",
     "grunt-bowercopy": "latest",
     "grunt-cli": "latest",
@@ -32,12 +32,7 @@
     "grunt-contrib-watch": "latest",
     "grunt-release": "latest",
     "phantomjs": "latest",
-    "seedrandom": "latest"
-  },
-  "browserify": {
-    "transform": [ "browserify-shim" ]
-  },
-  "browserify-shim": {
-    "jQuery": "global:jQuery"
+    "seedrandom": "latest",
+    "uglify-js": "^2.6.1"
   }
 }
